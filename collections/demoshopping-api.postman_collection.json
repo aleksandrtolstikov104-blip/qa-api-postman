@@ -1,0 +1,1088 @@
+{
+  "info": {
+    "_postman_id": "890b0643-6c69-412b-94e9-1d70432897e3",
+    "name": "DemoShopping",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50646659",
+    "_collection_link": "https://go.postman.co/collection/50646659-890b0643-6c69-412b-94e9-1d70432897e3?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "200: Регистрация нового пользователя",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": {{login}},\n  \"password\": {{password}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_DemoShopping}}/register",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Добавление нового пользователя",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": {{login}},\r\n  \"password\": {{password}}\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_DemoShopping}}/users",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200:Авторизация пользователя",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\":{{login}},\r\n\"password\":{{password}}\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_DemoShopping}}/login",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Удаляет пользователя по ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL_DemoShopping}}/users/{{login}}",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "users",
+                "{{login}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Получение всех user_id и login пользователей",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"user_id\": 1,\r\n    \"login\": \"john_doe\"\r\n  }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_DemoShopping}}/users",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "200: Возвращает(Показывает) список всех продуктов",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"id\": 0,\r\n    \"name\": \"string\",\r\n    \"description\": \"string\",\r\n    \"price\": 0,\r\n    \"category\": \"string\",\r\n    \"manufacturer\": \"string\",\r\n    \"imageUrl\": \"string\",\r\n    \"freeShipping\": true\r\n  }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_DemoShopping}}/products",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Добавление нового продукта",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"iPhone 29\",\r\n  \"description\": \"Это не айфон, это айфонище.\",\r\n  \"price\": 999,\r\n  \"category\": \"Phones\",\r\n  \"manufacturer\": \"Apple\",\r\n  \"imageUrl\": \"http://example.com/image.jpg\",\r\n  \"freeShipping\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_DemoShopping}}/add-product",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "add-product"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Поиск товара по ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_DemoShopping}}/products/id/{{ID_Product}}",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "products",
+                "id",
+                "{{ID_Product}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Полное обновление товара по ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Pixel 007\",\r\n  \"description\": \"This is PIXEL namber one\",\r\n  \"price\": 777,\r\n  \"category\": \"Phones\",\r\n  \"manufacturer\": \"Apple\",\r\n  \"imageUrl\": \"http://example.com/image.jpg\",\r\n  \"freeShipping\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_DemoShopping}}/products/id/{{ID_Product}}",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "products",
+                "id",
+                "{{ID_Product}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Частичное обновление товара по ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Pixel 666\",\r\n  \"description\": \"This is PIXEL namber one\",\r\n  \"price\": 777,\r\n  \"category\": \"Phones\",\r\n  \"manufacturer\": \"Apple\",\r\n  \"imageUrl\": \"http://example.com/image.jpg\",\r\n  \"freeShipping\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_DemoShopping}}/products/id/{{ID_Product}}",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "products",
+                "id",
+                "{{ID_Product}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Удаление товара по ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_DemoShopping}}/products/id/{{ID_Product}}",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "products",
+                "id",
+                "{{ID_Product}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Поиск товаров по категории",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL_DemoShopping}}/products/FindByCategory?category=Phones",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "products",
+                "FindByCategory"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "Phones"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Поиск товаров по производителю",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL_DemoShopping}}/products/FindByManufacturer?manufacturer=Apple",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "products",
+                "FindByManufacturer"
+              ],
+              "query": [
+                {
+                  "key": "manufacturer",
+                  "value": "Apple"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Поиск товаров с бесплатной доставкой",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL_DemoShopping}}/products/FindByShipping?freeShipping=true",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "products",
+                "FindByShipping"
+              ],
+              "query": [
+                {
+                  "key": "freeShipping",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Фильтрация списка продуктов",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL_DemoShopping}}/products/filter?category=Phones&manufacturer=Apple&freeShipping=true&minPrice=100&maxPrice=1000",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "products",
+                "filter"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "Phones"
+                },
+                {
+                  "key": "manufacturer",
+                  "value": "Apple"
+                },
+                {
+                  "key": "freeShipping",
+                  "value": "true"
+                },
+                {
+                  "key": "minPrice",
+                  "value": "100"
+                },
+                {
+                  "key": "maxPrice",
+                  "value": "1000"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Cart",
+      "item": [
+        {
+          "name": "200: Добавляет товар в корзину пользователя",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productId\": {{productId}},\r\n  \"quantity\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_DemoShopping}}/cart",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "cart"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Возвращает содержимое корзины пользователя",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL_DemoShopping}}/getCart",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "getCart"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Обновляет количество товара в корзине пользователя",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"quantity\": 5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_DemoShopping}}/cart/{{cart_item_id}}",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "cart",
+                "{{cart_item_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Удаляет товар из корзины пользователя",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL_DemoShopping}}/cart/{{cart_item_id}}",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "cart",
+                "{{cart_item_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Products Invalid cases",
+      "item": [
+        {
+          "name": "400: Добавление нового продукта / Ошибка в данных продукта",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"\",\r\n  \"description\": \"This is an example product.\",\r\n  \"price\": 100,\r\n  \"category\": \"Electronics\",\r\n  \"manufacturer\": \"Example Manufacturer\",\r\n  \"imageUrl\": \"http://example.com/image.jpg\",\r\n  \"freeShipping\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_base}}/add-product",
+              "host": [
+                "{{URL_base}}"
+              ],
+              "path": [
+                "add-product"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "404: Поиск товара по ID. 404 Товар с таким ID не найден",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_base}}/products/id/{{ID_Invalid}}",
+              "host": [
+                "{{URL_base}}"
+              ],
+              "path": [
+                "products",
+                "id",
+                "{{ID_Invalid}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "!!!не получается 403: Удаление товара по ID. Удаление этого товара запрещено",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL_base}}/products/id/24600",
+              "host": [
+                "{{URL_base}}"
+              ],
+              "path": [
+                "products",
+                "id",
+                "24600"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "404: Удаление товара по ID Товар с таким ID не найден",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL_base}}/products/id/{{ID_Invalid}}",
+              "host": [
+                "{{URL_base}}"
+              ],
+              "path": [
+                "products",
+                "id",
+                "{{ID_Invalid}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "400: Полное обновление товара по ID Copy. Неверные данные продукта",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"PIXEL\",\r\n  \"description\": \"This is PIXEL namber one\",\r\n  \"price\": \"девятьсот девяносто девять\",\r\n  \"category\": \"Phones\",\r\n  \"manufacturer\": \"Apple\",\r\n  \"imageUrl\": \"http://example.com/image.jpg\",\r\n  \"freeShipping\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_base}}/products/id/{{ID_Product}}",
+              "host": [
+                "{{URL_base}}"
+              ],
+              "path": [
+                "products",
+                "id",
+                "{{ID_Product}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "404: Полное обновление товара по ID Copy. Товар с таким ID не найден",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Pixel 007\",\r\n  \"description\": \"This is PIXEL namber one\",\r\n  \"price\": 777,\r\n  \"category\": \"Phones\",\r\n  \"manufacturer\": \"Apple\",\r\n  \"imageUrl\": \"http://example.com/image.jpg\",\r\n  \"freeShipping\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_base}}/products/id/{{ID_Invalid}}",
+              "host": [
+                "{{URL_base}}"
+              ],
+              "path": [
+                "products",
+                "id",
+                "{{ID_Invalid}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "400: Частичное обновление товара по ID. Неверные данные продукта",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Pixel 666\",\r\n  \"description\": \"This is PIXEL namber one\",\r\n  \"price\": сто двадцать два,\r\n  \"category\": \"Phones\",\r\n  \"manufacturer\": \"Apple\",\r\n  \"imageUrl\": \"http://example.com/image.jpg\",\r\n  \"freeShipping\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_base}}/products/id/{{ID_Product}}",
+              "host": [
+                "{{URL_base}}"
+              ],
+              "path": [
+                "products",
+                "id",
+                "{{ID_Product}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "404: Частичное обновление товара по ID. Товар с таким ID не найден",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Pixel 666\",\r\n  \"description\": \"This is PIXEL namber one\",\r\n  \"price\": 777,\r\n  \"category\": \"Phones\",\r\n  \"manufacturer\": \"Apple\",\r\n  \"imageUrl\": \"http://example.com/image.jpg\",\r\n  \"freeShipping\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_base}}/products/id/{{ID_Invalid}}",
+              "host": [
+                "{{URL_base}}"
+              ],
+              "path": [
+                "products",
+                "id",
+                "{{ID_Invalid}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "200: Получение списка всех заказов пользователя",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL_DemoShopping}}/user-orders",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "user-orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Создание заказа из товаров в корзине пользователя",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{URL_DemoShopping}}/orders",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Удаление товара из заказа",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL_DemoShopping}}/orders/{orderId}/products/{productId}",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "orders",
+                "{orderId}",
+                "products",
+                "{productId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Изменение количества товара в заказе",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"quantity\": 0\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_DemoShopping}}/orders/{orderId}/products/{productId}",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "orders",
+                "{orderId}",
+                "products",
+                "{productId}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Обновление общей суммы заказов пользователя",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{URL_DemoShopping}}/update-orders-total",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "update-orders-total"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Получение данных об оплаченных заказах",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL_DemoShopping}}/api/orders-history ",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "api",
+                "orders-history "
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Payment",
+      "item": [
+        {
+          "name": "200: Оплата заказов пользователя",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"card_type\": \"MasterCard\",\r\n  \"card_code\": \"5248106661644884\",\r\n  \"expiry_month\": 12,\r\n  \"expiry_year\": 26,\r\n  \"cvv\": \"456\"\r\n  /*\"email\": \"user@example.com\",\r\n  \"email_paypal\": \"valid@email.com\"*/\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_DemoShopping}}/pay",
+              "host": [
+                "{{URL_DemoShopping}}"
+              ],
+              "path": [
+                "pay"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{Key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "URL_base",
+      "value": ""
+    },
+    {
+      "key": "login_password",
+      "value": ""
+    },
+    {
+      "value": ""
+    },
+    {
+      "key": "ID_Product",
+      "value": ""
+    },
+    {
+      "key": "ID_Invalid",
+      "value": ""
+    },
+    {
+      "key": "productId",
+      "value": ""
+    },
+    {
+      "key": "cart_item_id",
+      "value": ""
+    }
+  ]
+}
